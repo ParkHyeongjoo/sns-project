@@ -1,0 +1,172 @@
+.loginContainer {
+  display: flex;
+
+  .left {
+    flex: 2;
+    background-image: url(https://abs.twimg.com/sticky/illustrations/lohp_850x623.png);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      display: flex;
+      width: auto;
+      height: 430px;
+    }
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+
+    img {
+      width: 90px;
+      margin-bottom: 20px;
+    }
+
+    .intArea {
+      width: 400px;
+      position: relative;
+      margin-top: 20px;
+
+      input {
+        width: 100%;
+        padding: 20px 10px 10px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #999;
+        font-size: 18px;
+        color: black;
+        outline: none;
+      }
+
+      label {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        font-size: 18px;
+        color: #999;
+        transition: top 0.5s ease;
+        pointer-events: none;
+      }
+
+      label.warning {
+        color: red !important;
+        animation: warning 0.3s ease;
+        animation-iteration-count: 2;
+      }
+
+      input:focus + label,
+      input:valid + label {
+        top: -2px;
+        font-size: 13px;
+        color: #166cea;
+      }
+
+      hr {
+        margin-top: 30px;
+        width: 100%;
+      }
+
+      p {
+        background: #fff;
+        width: 40px;
+        margin: -12px auto 20px;
+      }
+
+      button {
+        width: 100%;
+        height: 50px;
+        color: #fff;
+        background: #166beaa9;
+        font-size: 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+    }
+
+    .btnArea {
+      margin-top: 30px;
+      width: 400px;
+
+      button {
+        width: 100%;
+        height: 50px;
+        color: #fff;
+        background: #166bea;
+        font-size: 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+    }
+
+    .mainCaption {
+      margin-top: 15px;
+
+      span {
+        margin: 30px;
+
+        button {
+          padding: 4px;
+        }
+      }
+    }
+
+    .caption {
+      margin-top: 20px;
+      text-align: center;
+
+      button {
+        font-size: 15px;
+        color: #999;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #b3e5fc;
+        border-radius: 4px;
+      }
+    }
+
+    .signUp {
+      margin-top: 15px;
+
+      button {
+        margin-left: 6px;
+        padding: 4px;
+        font-size: 15px;
+        color: #999;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #b3e5fc;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+@keyframes warning {
+  0% {
+    transform: translateX(-4px);
+  }
+  25% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
