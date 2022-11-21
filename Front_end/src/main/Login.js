@@ -1,9 +1,29 @@
+import axios from "axios";
 import React, { useRef } from "react";
 import "./Login.scss";
 
 const Login = () => {
   const idRef = useRef();
   const pwRef = useRef();
+
+  function login() {
+    axios
+      .post("/ittime/login", {
+        mb_id: idRef.current.value,
+        mb_pw: pwRef.current.value,
+      })
+      .then(function (res) {
+        // if (res.data !== "") {
+        //   getAuth(res.data);
+        // } else {
+        //   alert("아이디와 비밀번호를 확인해주세요");
+        // }
+        console.log(res.data);
+      })
+      .catch(function (error) {
+        alert("Login 실패!");
+      });
+  }
 
   const btnLogin = (e) => {
     e.preventDefault();
@@ -18,9 +38,10 @@ const Login = () => {
         pwRef.current.nextSibling.classList.remove("warning");
       }, 1500);
     } else {
-      //   login();
+      login();
     }
   };
+
   const findId = () => {};
   const findPw = () => {};
   const signUp = () => {};
