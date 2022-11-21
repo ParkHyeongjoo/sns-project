@@ -34,6 +34,8 @@ public class MemberController {
 		Member loginM = (Member)session.getAttribute("listM");
 
 		System.out.println(loginM);
+		
+		
 
 		return loginM;
 	}
