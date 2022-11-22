@@ -23,19 +23,35 @@ public class MemberController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json; charset=utf8")
 	public Member login(@RequestBody Member member, HttpSession session) {
 		
-		System.out.println(member);
-
 		Member listM = memberService.loginMember(member);
-
-		System.out.println(listM);
 
 		session.setAttribute("listM", listM);
 
 		Member loginM = (Member)session.getAttribute("listM");
 
-		System.out.println(loginM);
-
 		return loginM;
 	}
+	
+	@RequestMapping(value = "/idcheck", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String idCheck(@RequestBody Member member) {
+		
+		return memberService.idCheck(member);
+	}
+
+	@RequestMapping(value = "/nickcheck", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String nickCheck(@RequestBody Member member) {
+		
+		return memberService.nickCheck(member);	
+	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String signUp(@RequestBody Member member) {
+		
+		System.out.println(member);
+		
+		return memberService.signUp(member);
+		
+	}
+	
 	
 }

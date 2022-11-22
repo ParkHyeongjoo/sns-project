@@ -12,17 +12,16 @@ const Login = () => {
 
   function login() {
     axios
-      .post("/ittime/login", {
+      .post("/login", {
         mb_id: idRef.current.value,
         mb_pw: pwRef.current.value,
       })
       .then(function (res) {
-        // if (res.data !== "") {
-        //   getAuth(res.data);
-        // } else {
-        //   alert("아이디와 비밀번호를 확인해주세요");
-        // }
-        console.log(res.data);
+        if (res.data !== "") {
+          // getAuth(res.data);
+        } else {
+          alert("아이디와 비밀번호를 확인해주세요");
+        }
       })
       .catch(function (error) {
         alert("Login 실패!");
@@ -42,6 +41,12 @@ const Login = () => {
         pwRef.current.nextSibling.classList.remove("warning");
       }, 1500);
     } else {
+      login();
+    }
+  };
+
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
       login();
     }
   };
@@ -74,52 +79,55 @@ const Login = () => {
     }
   };
   return (
-    <div className="loginContainer">
-      <div className="left">
-        <img src="/img/logoWhite-removebg.png"></img>
-      </div>
-      <div className="right">
-        <img src="/img/logo.png"></img>
-        <div className="intArea">
-          <input
-            maxLength={16}
-            type="text"
-            name="id"
-            ref={idRef}
-            autoComplete="off"
-            required
-          ></input>
-          <label htmlFor="id">USER ID</label>
+    <div>
+      <div className="loginContainer">
+        <div className="left">
+          <img src="/img/logoWhite-removebg.png"></img>
         </div>
-        <div className="intArea">
-          <input
-            maxLength={16}
-            type="password"
-            name="pw"
-            ref={pwRef}
-            autoComplete="off"
-            required
-          ></input>
-          <label htmlFor="pw">PASSWORD</label>
-        </div>
-        <div className="btnArea">
-          <button onClick={btnLogin}>LOGIN</button>
-        </div>
-        <div className="mainCaption">
-          <span className="caption">
-            <button onClick={findId}>Forgot ID?</button>
-          </span>
-          <span className="caption">
-            <button onClick={findPw}>Forgot Password?</button>
-          </span>
-        </div>
-        <div className="intArea">
-          <hr></hr>
-          <p>또는</p>
-          <button>Login With Kakao</button>
-        </div>
-        <div className="signUp">
-          Not a Member ?<button onClick={signUp}>Sign Up</button>
+        <div className="right">
+          <img src="/img/logo.png"></img>
+          <div className="intArea">
+            <input
+              maxLength={16}
+              type="text"
+              name="id"
+              ref={idRef}
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="id">USER ID</label>
+          </div>
+          <div className="intArea">
+            <input
+              maxLength={16}
+              type="password"
+              name="pw"
+              ref={pwRef}
+              autoComplete="off"
+              required
+              onKeyDown={onKeyPress}
+            ></input>
+            <label htmlFor="pw">PASSWORD</label>
+          </div>
+          <div className="btnArea">
+            <button onClick={btnLogin}>LOGIN</button>
+          </div>
+          <div className="mainCaption">
+            <span className="caption">
+              <button onClick={findId}>Forgot ID?</button>
+            </span>
+            <span className="caption">
+              <button onClick={findPw}>Forgot Password?</button>
+            </span>
+          </div>
+          <div className="intArea">
+            <hr></hr>
+            <p>또는</p>
+            <button>Login With Kakao</button>
+          </div>
+          <div className="signUp">
+            Not a Member ?<button onClick={signUp}>Sign Up</button>
+          </div>
         </div>
       </div>
       <div className={!isActiveSignUp ? "scrollShow" : "scrollHidden"}>

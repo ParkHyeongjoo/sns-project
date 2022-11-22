@@ -10,10 +10,8 @@ const SignUp = () => {
   const emailRef = useRef();
 
   const [mb_pw, setMb_pw] = useState("");
-
   const [auth, setAuth] = useState(false);
   const [checkAuth, setCheckAuth] = useState("");
-
   const [userIdError, setUserIdError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
@@ -61,7 +59,7 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("/ittime/mailcheck", {
+      .post("/mailcheck", {
         checkEmail: emailRef.current.value,
       })
       .then(function (res) {
@@ -77,12 +75,12 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("/ittime/idcheck", {
+      .post("/idcheck", {
         mb_id: idRef.current.value,
       })
       .then(function (res) {
         alert(res.data);
-        if (res.data === "사용가능한 아이디 입니다") {
+        if (res.data === "생성가능한 아이디 입니다.") {
           setCkId(true);
         }
       })
@@ -95,12 +93,12 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("/ittime/nickcheck", {
+      .post("/nickcheck", {
         mb_nick: nickRef.current.value,
       })
       .then(function (res) {
         alert(res.data);
-        if (res.data === "사용가능한 닉네임 입니다") {
+        if (res.data === "생성가능한 닉네임 입니다.") {
           setCkNick(true);
         }
       })
@@ -111,7 +109,6 @@ const SignUp = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (
       !userIdError &&
       !passwordError &&
@@ -122,20 +119,22 @@ const SignUp = () => {
       ckNick
     ) {
       axios
-        .post("/ittime/signup", {
+        .post("/signup", {
           mb_id: idRef.current.value,
           mb_pw: pwRef.current.value,
           mb_nick: nickRef.current.value,
           mb_email: emailRef.current.value,
         })
         .then(function (res) {
-          if (res.data === "success") {
-            alert("회원가입에 성공하셨습니다!!");
+          if (res.data === "회원가입이 완료되었습니다.") {
+            alert(res.data);
             window.location.reload();
+          } else {
+            alert(res.data);
           }
         })
         .catch(function (error) {
-          alert("회원가입에 실패했습니다");
+          alert(error);
         });
     } else if (!ckId) {
       alert("아이디 중복 확인 해주세요");
@@ -232,7 +231,7 @@ const SignUp = () => {
         </form>
       </div>
       <p>
-        이미 아이디가 있으신가요? <button>Login Here</button>
+        이미 아이디가 있으신가요? <a href="">Login Here</a>
       </p>
     </div>
   );
