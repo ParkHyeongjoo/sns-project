@@ -1,6 +1,10 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Login.scss";
+
+import SignUp from "./SignUp";
+import FindId from "./FindId";
+import FindPw from "./FindPw";
 
 const Login = () => {
   const idRef = useRef();
@@ -42,9 +46,33 @@ const Login = () => {
     }
   };
 
-  const findId = () => {};
-  const findPw = () => {};
-  const signUp = () => {};
+  const [isActiveSignUp, setIsActiveSignUp] = useState(false);
+  const [isActiveFindId, setIsActiveFindId] = useState(false);
+  const [isActiveFindPw, setIsActiveFindPw] = useState(false);
+  const signUp = (e) => {
+    e.preventDefault();
+    if (!isActiveSignUp) {
+      setIsActiveSignUp(true);
+    } else {
+      setIsActiveSignUp(false);
+    }
+  };
+  const findId = (e) => {
+    e.preventDefault();
+    if (!isActiveFindId) {
+      setIsActiveFindId(true);
+    } else {
+      setIsActiveFindId(false);
+    }
+  };
+  const findPw = (e) => {
+    e.preventDefault();
+    if (!isActiveFindPw) {
+      setIsActiveFindPw(true);
+    } else {
+      setIsActiveFindPw(false);
+    }
+  };
   return (
     <div className="loginContainer">
       <div className="left">
@@ -94,6 +122,21 @@ const Login = () => {
           Not a Member ?<button onClick={signUp}>Sign Up</button>
         </div>
       </div>
+      <div className={!isActiveSignUp ? "scrollShow" : "scrollHidden"}>
+        <div className={!isActiveSignUp ? "modalHidden" : "modalShow"}>
+          <SignUp />
+        </div>
+      </div>
+      {/* <div className={!isActiveFindId ? "scrollShow" : "scrollHidden"}>
+        <div className={!isActiveFindId ? "idModalHidden" : "idModalShow"}>
+          <FindId />
+        </div>
+      </div> */}
+      {/* <div className={!isActiveFindPw ? "scrollShow" : "scrollHidden"}>
+        <div className={!isActiveFindPw ? "pwModalHidden" : "pwModalShow"}>
+          <FindPw />
+        </div>
+      </div> */}
     </div>
   );
 };
