@@ -48,9 +48,21 @@ public class MemberController {
 	public String signUp(@RequestBody Member member) {
 		
 		System.out.println(member);
+		return memberService.signUp(member);	
+	}
+	
+	@RequestMapping(value = "/findid", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String findId(@RequestBody Member member) {
 		
-		return memberService.signUp(member);
+		System.out.println(member);
+		return memberService.findId(member);	
+	}
+	
+	@RequestMapping(value = "/findpw", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String findPw(@RequestBody Member member) throws Exception {
 		
+		System.out.println(member);
+		return memberService.findPw(member);
 	}
 	
 	

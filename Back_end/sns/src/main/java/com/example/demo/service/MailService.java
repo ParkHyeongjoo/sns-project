@@ -35,9 +35,12 @@ public class MailService {
 		msgg += "<h1> 안녕하세요</h1>";
 		msgg += "<h1> 예비개발자를 윈한 SNS ITtime 입니다</h1>";
 		msgg += "<br>";
+		msgg += "<p>아래 코드를 ITtime으로 돌아가 입력해주세요<p>";
+		msgg += "<br>";
 		msgg += "<p>항상 당신의 꿈을 응원합니다. 감사합니다!<p>";
 		msgg += "<br>";
 		msgg += "<div align='center' style='border:1px solid black; font-family:verdana';>";
+		msgg += "<h3 style='color:blue;'>인증 코드입니다.</h3>";
 		msgg += "<div style='font-size:130%'>";
 		msgg += "CODE : <strong>";
 		msgg += ePw + "</strong><div><br/> "; // 메일에 인증코드 넣기
@@ -90,5 +93,47 @@ public class MailService {
 		}
 		return ePw; // 메일로 보냈던 인증 코드를 서버로 반환
 	}
+	
+	
+	// 비밀번호 변경 메일 발송
+	public String resetPw(String to) throws Exception {
+		
+		ePw = createKey();
+		
+		MimeMessage message = pwCreateMessage(to);
+		try {
+			emailSender.send(message);
+		} catch (MailException es) {
+			es.printStackTrace();
+			throw new IllegalArgumentException();
+		}
+		return ePw;
+	}
 
+	public MimeMessage pwCreateMessage(String to) throws MessagingException, UnsupportedEncodingException {
+
+		MimeMessage message = emailSender.createMimeMessage();
+
+		message.addRecipients(RecipientType.TO, to);
+		message.setSubject("ITtime 이메일 인증");
+
+		String msgg = "";
+		msgg += "<div style='margin:100px;'>";
+		msgg += "<h1> 안녕하세요</h1>";
+		msgg += "<h1> 예비개발자를 윈한 SNS ITtime 입니다</h1>";
+		msgg += "<br>";
+		msgg += "<p>항상 당신의 꿈을 응원합니다. 감사합니다!<p>";
+		msgg += "<br>";
+		msgg += "<div align='center' style='border:1px solid black; font-family:verdana';>";
+		msgg += "<h3 style='color:blue;'>새 비밀번호 입니다.</h3>";
+		msgg += "<div style='font-size:130%'>";
+		msgg += "CODE : <strong>";
+		msgg += ePw + "</strong><div><br/> "; // 메일에 인증코드 넣기
+		msgg += "</div>";
+		message.setText(msgg, "utf-8", "html"); // 내용, charset 타입, subtype
+		// 보내는 사람의 이메일 주소, 보내는 사람 이름
+		message.setFrom(new InternetAddress("hyeongjoo0324@naver.com", "박형주")); // 보내는 사람
+
+		return message;
+	}
 }

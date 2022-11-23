@@ -19,6 +19,7 @@ const Login = () => {
       .then(function (res) {
         if (res.data !== "") {
           // getAuth(res.data);
+          console.log(res.data);
         } else {
           alert("아이디와 비밀번호를 확인해주세요");
         }
@@ -78,6 +79,14 @@ const Login = () => {
       setIsActiveFindPw(false);
     }
   };
+  const movePw = (e) => {
+    setIsActiveFindId(false);
+    setIsActiveFindPw(true);
+  };
+  const moveId = (e) => {
+    setIsActiveFindPw(false);
+    setIsActiveFindId(true);
+  };
   return (
     <div>
       <div className="loginContainer">
@@ -135,16 +144,16 @@ const Login = () => {
           <SignUp />
         </div>
       </div>
-      {/* <div className={!isActiveFindId ? "scrollShow" : "scrollHidden"}>
+      <div className={!isActiveFindId ? "scrollShow" : "scrollHidden"}>
         <div className={!isActiveFindId ? "idModalHidden" : "idModalShow"}>
-          <FindId />
+          <FindId movePw={movePw} />
         </div>
-      </div> */}
-      {/* <div className={!isActiveFindPw ? "scrollShow" : "scrollHidden"}>
+      </div>
+      <div className={!isActiveFindPw ? "scrollShow" : "scrollHidden"}>
         <div className={!isActiveFindPw ? "pwModalHidden" : "pwModalShow"}>
-          <FindPw />
+          <FindPw moveId={moveId} />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
