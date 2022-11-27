@@ -1,0 +1,99 @@
+.write {
+  margin-top: 80px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .content {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+      font-weight: bold;
+      font-size: 1.4em;
+      color: var(--text-color);
+      background-color: var(--sidebar-color);
+      transition: var(--tran-05);
+      border: none;
+      box-shadow: var(--shadow-color);
+      padding: 14px;
+    }
+    .title::placeholder {
+      color: rgb(165, 165, 165);
+    }
+
+    .menu {
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      color: var(--text-color);
+      transition: var(--tran-05);
+      background-color: var(--sidebar-color);
+      box-shadow: var(--shadow-color);
+
+      h1 {
+        font-size: 20px;
+        margin-right: 40px;
+      }
+      div {
+        margin: 0px 10px;
+      }
+    }
+
+    .editorContainer {
+      height: 670px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      box-shadow: var(--shadow-color);
+      transition: var(--tran-05);
+      background-color: var(--sidebar-color);
+      color: var(--text-color);
+
+      .ql-snow {
+        .ql-stroke {
+          stroke: var(--text-color);
+          transition: var(--tran-05);
+        }
+        .ql-stroke-miter {
+          stroke: var(--text-color);
+          transition: var(--tran-05);
+        }
+        .ql-picker {
+          color: var(--text-color);
+          transition: var(--tran-05);
+        }
+        .ql-tooltip {
+          color: var(--text-color);
+          transition: var(--tran-05);
+        }
+        .ql-fill,
+        .ql-stroke.ql-fill {
+          fill: var(--text-color);
+          transition: var(--tran-05);
+        }
+      }
+      .editor {
+        height: calc(100% - 42px);
+        border: none;
+      }
+    }
+  }
+  .submit {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      padding: 6px 12px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: var(--tran-05);
+      background-color: var(--sidebar-color);
+      color: var(--text-color);
+      border: 3px solid gray;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
