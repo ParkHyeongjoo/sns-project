@@ -153,13 +153,19 @@
         }
       }
     }
-    .mode.lightMode .iSun {
+    .mode .iSun {
       opacity: 0;
       transition: var(--tran-02);
     }
-    .mode.darkMode .iMoon {
-      opacity: 0;
-      transition: var(--tran-02);
+    .mode.darkMode {
+      .iMoon {
+        opacity: 0;
+        transition: var(--tran-02);
+      }
+      .iSun {
+        opacity: 1;
+        transition: var(--tran-02);
+      }
     }
     .mode.darkMode .toggleSwitch .switch::before {
       left: 24px;

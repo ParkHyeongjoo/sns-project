@@ -2,6 +2,8 @@ import "./App.scss";
 
 import Login from "./main/Login";
 import LeftBar from "./components/LeftBar";
+import Header from "./components/Header";
+import AnimateRoutes from "./components/AnimateRoutes";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -11,12 +13,12 @@ function App() {
   const getAuth = (data) => {
     sessionStorage.setItem("id", data.mb_id);
     sessionStorage.setItem("nick", data.mb_nick);
+    sessionStorage.setItem("pic", data.mb_pic);
     setAuth("로그인성공");
   };
 
   useEffect(() => {
     sessionStorage.getItem("id") !== null && setUser(true);
-    sessionStorage.setItem("mode", "lightMode");
   }, [auth]);
 
   const [mode, setMode] = useState(sessionStorage.getItem("mode"));
@@ -47,10 +49,12 @@ function App() {
           <div className="body">
             <div className="headerBar">
               <div className="fixed">
-                {/* <Header headerName={headerName} /> */}
+                <Header headerName={headerName} />
               </div>
             </div>
-            <div className="view">{/* <AnimateRoutes /> */}</div>
+            <div className="view">
+              <AnimateRoutes />
+            </div>
           </div>
         </div>
       )}

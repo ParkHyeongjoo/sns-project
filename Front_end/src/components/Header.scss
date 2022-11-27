@@ -1,0 +1,107 @@
+@media screen and (max-width: 1053px) {
+  .headerBody .search {
+    opacity: 0;
+    display: none;
+  }
+  .headerBody .menu {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    transition: all 0.3s;
+  }
+}
+@media screen and (min-width: 1053px) {
+  .headerBody .menu {
+    visibility: hidden;
+    width: 0vw;
+    opacity: 0;
+  }
+}
+
+.headerBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+
+  .page {
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 30px;
+    margin-right: 20px;
+    color: var(--text-color);
+  }
+  .search {
+    input {
+      width: 230px;
+      outline: none;
+      border: 1px solid black;
+      background: #fff;
+      padding: 6px;
+      height: 32px;
+      border-radius: 30px;
+      font-size: 14px;
+      padding-left: 20px;
+    }
+    input::placeholder {
+      color: #bbb;
+    }
+    .icon {
+      position: relative;
+      top: 1px;
+      right: 30px;
+      font-size: 14px;
+      color: #bbb;
+      cursor: pointer;
+    }
+  }
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .menuLinks {
+      height: 60px;
+      margin-top: 10px;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        padding: 12px;
+        font-size: 26px;
+        z-index: 9999;
+
+        a {
+          height: 50px;
+          width: 50px;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: var(--tran-03);
+        }
+        a:hover {
+          background: var(--primary-color);
+
+          .icon {
+            color: var(--sidebar-color);
+          }
+        }
+      }
+      .icon {
+        min-width: 50px;
+        color: var(--text-color);
+        transition: var(--tran-02);
+        pointer-events: none;
+      }
+      .navText {
+        display: none;
+      }
+    }
+  }
+}
