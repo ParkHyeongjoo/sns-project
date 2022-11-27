@@ -1,0 +1,168 @@
+@media screen and (max-width: 1220px) {
+  .leftSidebar {
+    width: 100px;
+
+    .text {
+      opacity: 0;
+    }
+
+    .menuBar .icon {
+      position: absolute;
+      left: 20px;
+    }
+    .menuBar .iSon,
+    .menuBar .iMoon {
+      opacity: 0;
+    }
+    .menuBar .mode .toggleSwitch {
+      position: absolute;
+      right: 6px;
+    }
+    .imgText .img {
+      margin-left: -13px;
+    }
+  }
+}
+
+.leftSidebar {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+
+  header .imgText {
+    display: flex;
+    align-items: center;
+
+    .img {
+      min-width: 100px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    img {
+      width: 80px;
+      margin-left: 10px;
+    }
+    .text {
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--text-color);
+      transition: var(--tran-05);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+  .menuBar .navText,
+  .menuBar .modeText {
+    font-size: 20px;
+  }
+
+  .menuBar .menu .menuLinks li:first-child {
+    margin-top: 60px;
+  }
+
+  li {
+    height: 80px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    a {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding-left: 25px;
+      border-radius: 6px;
+      transition: var(--tran-04);
+    }
+    a:hover {
+      background: var(--primary-color);
+
+      .icon,
+      .text {
+        color: var(--sidebar-color);
+      }
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      min-width: 60px;
+      pointer-events: none;
+    }
+    .icon,
+    .text {
+      color: var(--text-color);
+      transition: var(--tran-02);
+    }
+  }
+  .menuBar {
+    height: calc(100% - 53px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .mode {
+      position: relative;
+      border-radius: 8px;
+      background: var(--primary-color-light);
+
+      .moonSun {
+        height: 50px;
+        width: 55px;
+        display: flex;
+        align-items: center;
+      }
+      .icon {
+        position: absolute;
+      }
+      .toggleSwitch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        min-width: 60px;
+        cursor: pointer;
+
+        .switch {
+          position: relative;
+          height: 22px;
+          width: 44px;
+          border-radius: 25px;
+          background: var(--toggle-color);
+        }
+        .switch::before {
+          content: "";
+          position: absolute;
+          height: 15px;
+          width: 15px;
+          border-radius: 50%;
+          top: 50%;
+          left: 5px;
+          transform: translateY(-50%);
+          background: var(--sidebar-color);
+          transition: var(--tran-03);
+        }
+      }
+    }
+    .mode.lightMode .iSun {
+      opacity: 0;
+      transition: var(--tran-02);
+    }
+    .mode.darkMode .iMoon {
+      opacity: 0;
+      transition: var(--tran-02);
+    }
+    .mode.darkMode .toggleSwitch .switch::before {
+      left: 24px;
+    }
+  }
+}

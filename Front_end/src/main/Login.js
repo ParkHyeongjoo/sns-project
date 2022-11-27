@@ -6,7 +6,7 @@ import SignUp from "./SignUp";
 import FindId from "./FindId";
 import FindPw from "./FindPw";
 
-const Login = () => {
+const Login = ({ getAuth }) => {
   const idRef = useRef();
   const pwRef = useRef();
 
@@ -18,8 +18,7 @@ const Login = () => {
       })
       .then(function (res) {
         if (res.data !== "") {
-          // getAuth(res.data);
-          console.log(res.data);
+          getAuth(res.data);
         } else {
           alert("아이디와 비밀번호를 확인해주세요");
         }

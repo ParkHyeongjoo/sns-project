@@ -21,7 +21,7 @@ code {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #111;
+  background: rgb(255, 255, 255);
 }
 #loading {
   position: relative;
@@ -110,7 +110,7 @@ code {
 }
 #loading p {
   position: absolute;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 1.5em;
   font-family: consolas;
   bottom: -80px;
