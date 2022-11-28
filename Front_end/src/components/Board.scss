@@ -154,6 +154,11 @@
   .content {
     margin-bottom: 10px;
 
+    .title {
+      padding: 10px;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
     img {
       margin-bottom: 10px;
       width: auto;
@@ -218,9 +223,8 @@
         align-self: center;
         font-size: 14px;
         padding: 4px;
-        background: var(--sidebar-color);
-        transition: var(--tran-05);
         box-shadow: var(--shadow-color);
+        background: var(--sidebar-color);
         transition: var(--tran-05);
         color: var(--text-color);
         border-radius: 4px;

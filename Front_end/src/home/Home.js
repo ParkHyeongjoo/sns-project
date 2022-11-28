@@ -9,14 +9,16 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // axios
-    //   .get("ittime/getposts")
-    //   .then(function (res) {
-    //     setPosts(res.data);
-    //   })
-    //   .catch(function (error) {
-    //     alert("Error");
-    //   });
+    console.log("Home");
+    axios
+      .get("/getposts")
+      .then(function (res) {
+        console.log(res.data);
+        setPosts(res.data);
+      })
+      .catch(function (error) {
+        alert("Error");
+      });
   }, []);
 
   return (

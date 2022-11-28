@@ -107,7 +107,7 @@ const Write = () => {
             { indent: "-1" },
             { indent: "+1" },
           ], // 리스트, 인덴트 설정
-          ["link", "image", "video"], // 링크, 이미지, 비디오 업로드 설정
+          ["image"], // 이미지 업로드 설정
           [{ align: [] }, { color: [] }, { background: [] }], // 정렬, 글씨 색깔, 글씨 배경색 설정
           ["clean"], // toolbar 설정 초기화 설정
         ],
@@ -132,9 +132,7 @@ const Write = () => {
     "list",
     "bullet",
     "indent",
-    "link",
     "image",
-    "video",
     "align",
     "color",
     "background",

@@ -15,5 +15,7 @@ public class Board {
 	private String mb_nick;
 	private String board_type;
 	private String board_content;
+	
+	private String mb_pic; // 작성자 프로필 사진
 
 }

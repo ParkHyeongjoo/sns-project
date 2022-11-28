@@ -10,6 +10,7 @@ import Comments from "./Comments";
 import "./Board.scss";
 import Share from "./Share";
 import axios from "axios";
+import "react-quill/dist/quill.snow.css";
 
 const Board = (props) => {
   const [active, setActive] = useState(false);
@@ -20,17 +21,17 @@ const Board = (props) => {
   const [boardLikeCheck, setBoardLikeCheck] = useState("");
 
   const [comment, setComment] = useState([]);
-  useEffect(() => {
-    axios
-      .get("ittime/getcomment")
-      .then(function (res) {
-        setComment(res.data);
-        setActive(false);
-      })
-      .catch(function (error) {
-        alert("Error");
-      });
-  }, [active]);
+  // useEffect(() => {
+  //   axios
+  //     .get("/getcomment")
+  //     .then(function (res) {
+  //       setComment(res.data);
+  //       setActive(false);
+  //     })
+  //     .catch(function (error) {
+  //       alert("Error");
+  //     });
+  // }, [active]);
 
   const mapComment = comment
     .filter((item) => {
@@ -60,7 +61,7 @@ const Board = (props) => {
 
   const boardDelete = (e) => {
     axios
-      .post("/ittime/boardDelete", {
+      .post("/boardDelete", {
         board_seq: props.item.board_seq,
       })
       .then(function (res) {
@@ -179,12 +180,12 @@ const Board = (props) => {
       </div>
       <div className="content">
         <h2 className="title">{props.item.board_title}</h2>
-        <img
-          src={
-            props.item.board_file === null ? "" : `img/${props.item.board_file}`
-          }
-        />
-        <p dangerouslySetInnerHTML={{ __html: props.item.board_content }}></p>
+        <div className="ql-snow">
+          <div
+            className="ql-editor"
+            dangerouslySetInnerHTML={{ __html: props.item.board_content }}
+          ></div>
+        </div>
       </div>
       <div className="bottomBar">
         <div></div>
