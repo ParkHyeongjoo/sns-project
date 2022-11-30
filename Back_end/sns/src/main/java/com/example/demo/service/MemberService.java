@@ -77,4 +77,8 @@ public class MemberService {
 			return "가입하신 아이디가 없습니다";
 		}
 	}
+	
+	public Member profile(Member mb_nick) {
+		return memberMapper.profile(mb_nick);
+	}
 }

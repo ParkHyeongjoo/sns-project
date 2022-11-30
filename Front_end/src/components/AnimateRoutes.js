@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "../home/Home";
-// import Profile from "../profile/Profile";
+import Profile from "../profile/Profile";
 import Write from "../write/Write";
 // import Post from "../components/Post";
 // import Message from "../message/Message";
@@ -22,7 +22,7 @@ const AnimateRoutes = () => {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route exact path="/" element={<Home />}></Route>
-        {/* <Route path="/profile:nick" element={<Profile />}></Route> */}
+        <Route path="/profile:nick" element={<Profile />}></Route>
         <Route path="/write" element={<Write />}></Route>
         {/* <Route path="/post" element={<Post />}></Route>
         <Route path="/board:board_seq/edit" element={<WriteEdit />}></Route>

@@ -30,4 +30,7 @@ public interface MemberMapper {
 	
 	@Update("UPDATE member SET mb_pw=#{mb_pw} WHERE mb_id=#{mb_id} AND mb_email=#{mb_email}")
 	public int resetPw(Member member);
+	
+	@Select("SELECT * FROM member WHERE mb_nick=#{mb_nick}")
+	public Member profile(Member mb_nick);
 }

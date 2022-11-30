@@ -17,7 +17,7 @@ import "./Header.scss";
 
 const Header = ({ headerName }) => {
   const navigate = useNavigate();
-  const [page, setPage] = useState("Home");
+  const [page, setPage] = useState();
   const nick = sessionStorage.getItem("nick");
   const searchRef = useRef();
 

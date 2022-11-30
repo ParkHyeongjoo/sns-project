@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Member;
 import com.example.demo.service.MemberService;
+import com.google.gson.Gson;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class MemberController {
-
+	
+	Gson gson = new Gson();
 	
 	@Autowired
 	private MemberService memberService;
@@ -65,5 +67,15 @@ public class MemberController {
 		return memberService.findPw(member);
 	}
 	
+	@RequestMapping(value = "/profile", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public Member profile(@RequestBody String param){
+
+		System.out.println("profile param : " + param);
+
+		Member mb_nick = gson.fromJson(param, Member.class);
+
+		return memberService.profile(mb_nick);
+
+	}
 	
 }
