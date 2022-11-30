@@ -19,3 +19,11 @@ React-quill 사용미숙으로 저장된 데이터 반환시 css 적용 실패 �
 </p>
 
 ### 보완 Write, Board 컴포넌트
+React-quill 이미지 업로그 구현, 백엔드에서 파일 저장 public 폴더에 해주기때문에 <br>
+게시글을 불러올 때 문제 없이 불러와짐, css 수정으로 들여쓰기, align등 화면 구현 성공
+
+<p>
+<img src="https://user-images.githubusercontent.com/112370961/204760251-176c1afa-928f-4319-bfae-08f6baf31fcd.png" width="400" height="300"/>
+<img src="https://user-images.githubusercontent.com/112370961/204760491-9aade764-0c74-4264-a0b9-981f39ba76c7.png" width="400" height="300"/>
+
+</p>
