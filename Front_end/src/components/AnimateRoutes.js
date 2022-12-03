@@ -3,7 +3,7 @@ import Home from "../home/Home";
 import Profile from "../profile/Profile";
 import Write from "../write/Write";
 // import Post from "../components/Post";
-// import Message from "../message/Message";
+import Message from "../message/Message";
 // import NewChat from "../message/NewChat";
 // import MessageDetail from "../message/MessageDetail";
 // import WriteEdit from "./WriteEdit";
@@ -24,12 +24,12 @@ const AnimateRoutes = () => {
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/profile:nick" element={<Profile />}></Route>
         <Route path="/write" element={<Write />}></Route>
+        <Route path="/message" element={<Message />}></Route>
+        {/* <Route path="/messagedetail:cr_seq" element={<MessageDetail />}></Route> */}
+        {/* <Route path="/newchat" element={<NewChat />}></Route> */}
         {/* <Route path="/post" element={<Post />}></Route>
         <Route path="/board:board_seq/edit" element={<WriteEdit />}></Route>
         <Route path="/blog/:board_seq" element={<Blog />}></Route>
-        <Route path="/message" element={<Message />}></Route>
-        <Route path="/newchat" element={<NewChat />}></Route>
-        <Route path="/messagedetail:cr_seq" element={<MessageDetail />}></Route>
         <Route path="/editprofile" element={<Editprofile />}></Route>
         <Route path="/quitprofile" element={<Quitprofile />}></Route>
         <Route path="/search:what" element={<Search />}></Route> */}
