@@ -1,5 +1,7 @@
 package com.example.demo.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -33,4 +35,14 @@ public interface MemberMapper {
 	
 	@Select("SELECT * FROM member WHERE mb_nick=#{mb_nick}")
 	public Member profile(Member mb_nick);
+	
+//	채팅방 프로필 사진 가져오기
+	@Select("SELECT * FROM member WHERE mb_nick=#{nick}")
+	public Member getPic(String nick);
+	
+	@Select("SELECT * FROM member WHERE mb_nick NOT IN(#{mb_nick}) ORDER BY mb_nick")
+	public List<Member> getUser(Member user);
+	
+	@Select("SELECT * FROM member WHERE mb_nick=#{mb_nick}")
+	public Member getFrnd(String mb_nick);
 }

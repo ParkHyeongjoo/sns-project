@@ -4,8 +4,8 @@ import Profile from "../profile/Profile";
 import Write from "../write/Write";
 // import Post from "../components/Post";
 import Message from "../message/Message";
-// import NewChat from "../message/NewChat";
-// import MessageDetail from "../message/MessageDetail";
+import NewChat from "../message/NewChat";
+import MessageDetail from "../message/MessageDetail";
 // import WriteEdit from "./WriteEdit";
 // import Editprofile from "./Editprofile";
 // import Quitprofile from "./Quitprofile";
@@ -25,8 +25,8 @@ const AnimateRoutes = () => {
         <Route path="/profile:nick" element={<Profile />}></Route>
         <Route path="/write" element={<Write />}></Route>
         <Route path="/message" element={<Message />}></Route>
-        {/* <Route path="/messagedetail:cr_seq" element={<MessageDetail />}></Route> */}
-        {/* <Route path="/newchat" element={<NewChat />}></Route> */}
+        <Route path="/messagedetail:cr_seq" element={<MessageDetail />}></Route>
+        <Route path="/newchat" element={<NewChat />}></Route>
         {/* <Route path="/post" element={<Post />}></Route>
         <Route path="/board:board_seq/edit" element={<WriteEdit />}></Route>
         <Route path="/blog/:board_seq" element={<Blog />}></Route>

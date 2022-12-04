@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,5 +82,10 @@ public class MemberService {
 	
 	public Member profile(Member mb_nick) {
 		return memberMapper.profile(mb_nick);
+	}
+	
+	public List<Member> getUser(Member user) {
+
+		return memberMapper.getUser(user);
 	}
 }

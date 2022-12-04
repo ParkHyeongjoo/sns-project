@@ -1,4 +1,4 @@
-.messageBody {
+.newChat {
   height: calc(100vh - 75px);
   display: flex;
   align-items: center;
@@ -23,42 +23,62 @@
       background: var(--primary-color-light);
       transition: var(--tran-05);
       display: flex;
-      justify-content: space-between;
       align-items: center;
 
-      .headerIcon {
+      .iconDiv {
         display: flex;
-        list-style: none;
         cursor: pointer;
         color: var(--text-color);
         font-size: 1.5em;
-        margin-right: 10px;
+        padding: 3px;
+        margin-left: 20px;
       }
-      .userImg {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
+      .headerText {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-left: 10px;
+      }
+    }
+    .searchUser {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        img {
-          align-items: center;
-          justify-content: center;
-          max-width: 40px;
-          height: 40px;
-          object-fit: cover;
-          overflow: hidden;
-          border-radius: 50%;
-          margin: 0px 7px;
-        }
-        .userName {
-          font-size: 1.1em;
-          font-weight: 600;
+      div {
+        width: 100%;
+
+        input {
+          width: calc(100% - 20px);
+          outline: none;
+          border: none;
           color: var(--text-color);
-          margin-left: 6px;
+          padding: 5px 0px 5px 20px;
+          height: 38px;
+          border-radius: 30px;
+          font-size: 15px;
+          box-shadow: var(--shadow-color);
+          transition: var(--tran-05);
+        }
+
+        input::placeholder {
+          transition: var(--tran-05);
+          color: var(--text-color);
+        }
+        .icon {
+          position: absolute;
+          color: var(--text-color);
+          transition: var(--tran-05);
+          right: 30px;
+          top: 16px;
         }
       }
     }
     .list {
-      height: calc(100% - 70px);
+      height: calc(100% - 120px);
       width: 100%;
       overflow: auto;
 
@@ -134,4 +154,7 @@
       display: none;
     }
   }
+}
+.darkMode input {
+  background: var(--primary-color-light);
 }
