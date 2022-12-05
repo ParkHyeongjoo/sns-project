@@ -6,12 +6,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ProfileDetail = (props) => {
   const navigate = useNavigate();
-  const [image, setImage] = useState({
-    image_file: "",
-    preview_URL: "img/default_image.png",
-  });
-  let inputRef;
-  let inputRef2;
   const params = useParams();
 
   const [checkFollow, setCheckFollow] = useState();
@@ -22,12 +16,29 @@ const ProfileDetail = (props) => {
         to_nick: sessionStorage.getItem("nick"),
       })
       .then(function (res) {
-        res.data === 0 ? setCheckFollow("follow") : setCheckFollow("unfollow");
+        res.data === 0 ? setCheckFollow("Follow") : setCheckFollow("Following");
       })
       .catch(function (error) {
         alert("Error");
       });
   }, []);
+
+  const follow = (e) => {
+    e.preventDefault();
+    axios
+      .post("/follow", {
+        from_nick: params.nick,
+        to_nick: sessionStorage.getItem("nick"),
+      })
+      .then(function (res) {
+        res.data === "follow"
+          ? setCheckFollow("Following")
+          : setCheckFollow("Follow");
+      })
+      .catch(function (error) {
+        alert("Error");
+      });
+  };
 
   //   const changeMb_pic = (e) => {
   //     e.preventDefault();
@@ -44,7 +55,7 @@ const ProfileDetail = (props) => {
   //       const formData = new FormData();
   //       formData.append("file", e.target.files[0]);
   //       formData.append("mb_nick", props.item.mb_nick);
-  //       axios.post("/ittime/api/file/upload", formData).then(function (res) {
+  //       axios.post("/api/file/upload", formData).then(function (res) {
   //         sessionStorage.setItem("pic", res.data);
   //         window.location.reload();
   //         setImage({
@@ -75,7 +86,7 @@ const ProfileDetail = (props) => {
   //       formData.append("file", e.target.files[0]);
   //       formData.append("mb_id", props.item.mb_id);
 
-  //       axios.post("/ittime/api/file/upload", formData).then(function (res) {
+  //       axios.post("/api/file/upload", formData).then(function (res) {
   //         sessionStorage.setItem("bg", res.data);
   //         window.location.reload();
 
@@ -95,6 +106,7 @@ const ProfileDetail = (props) => {
   const editprofile = () => {
     navigate(`/editprofile`);
   };
+
   const message = (e) => {
     e.preventDefault();
     axios
@@ -104,23 +116,6 @@ const ProfileDetail = (props) => {
       })
       .then(function (res) {
         navigate(`/messagedetail${res.data}`);
-      })
-      .catch(function (error) {
-        alert("Error");
-      });
-  };
-
-  const follow = (e) => {
-    e.preventDefault();
-    axios
-      .post("/follow", {
-        from_nick: params.nick,
-        to_nick: sessionStorage.getItem("nick"),
-      })
-      .then(function (res) {
-        res.data === "follow"
-          ? setCheckFollow("unfollow")
-          : setCheckFollow("follow");
       })
       .catch(function (error) {
         alert("Error");

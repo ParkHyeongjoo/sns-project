@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.service.MailService;
 import com.example.demo.mapper.MemberMapper;
+import com.example.demo.model.Follow;
 import com.example.demo.model.Member;
 
 @Service
@@ -87,5 +88,26 @@ public class MemberService {
 	public List<Member> getUser(Member user) {
 
 		return memberMapper.getUser(user);
+	}
+	
+	public int checkFollow(Follow params) {
+		
+		return memberMapper.checkFollow(params);
+	}
+	
+	public String follow(Follow params) {
+		
+		int checkFollow = memberMapper.checkFollow(params);
+		
+		if (checkFollow > 0) {
+			memberMapper.unFollow(params);
+			
+			return "unfollow";
+
+		} else {
+			memberMapper.follow(params);
+			
+			return "follow";
+		}
 	}
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Follow;
 import com.example.demo.model.Member;
 import com.example.demo.service.MemberService;
 import com.google.gson.Gson;
@@ -78,4 +79,16 @@ public class MemberController {
 
 	}
 	
+	@RequestMapping(value = "/checkfollow", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public int checkFollow(@RequestBody Follow params) {
+		
+		return memberService.checkFollow(params);
+	}
+	
+	@RequestMapping(value = "/follow", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String follow(@RequestBody Follow params) {
+
+		return memberService.follow(params);
+
+	}
 }
